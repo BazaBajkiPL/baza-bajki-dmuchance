@@ -6,6 +6,7 @@
   <title>Baza Bajki Dmuchańce - Wynajem, Animacje, Popcorn, Namioty i Stoły</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #f9f9f9; }
     
     /* Header & Hero */
@@ -18,16 +19,25 @@
     .container { max-width: 1100px; margin: auto; padding: 20px; }
     
     /* Sekcje */
-    section { margin: 40px 0; }
+    section { margin: 50px 0; }
     h2 { text-align: center; color: #ff6b6b; margin-bottom: 30px; font-size: 2rem; }
     
-    /* Kafelki oferty */
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); text-align: center; transition: transform 0.2s; }
-    .card:hover { transform: translateY(-5px); }
-    .card h3 { color: #ff6b6b; margin-bottom: 10px; }
+    /* Kafelki oferty (Menu główne) */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .card-link { text-decoration: none; color: inherit; display: block; }
+    .card { background: white; padding: 25px 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); text-align: center; transition: transform 0.2s, box-shadow 0.2s; height: 100%; cursor: pointer; border: 2px solid transparent; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.15); border-color: #ff6b6b; }
+    .card h3 { color: #ff6b6b; margin-bottom: 10px; font-size: 1.3rem; }
     .card ul { text-align: left; margin-top: 10px; padding-left: 20px; }
-    
+    .click-info { margin-top: 15px; display: inline-block; color: #ff6b6b; font-weight: bold; font-size: 0.9rem; }
+
+    /* Podsekcje ze zdjęciami i cenami */
+    .detail-section { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 40px; scroll-margin-top: 20px; }
+    .detail-section h3 { color: #2e3192; margin-bottom: 15px; font-size: 1.6rem; border-bottom: 2px solid #f0f0f0; padding-bottom: 8px; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+    .gallery img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; background: #eee; }
+    .price-tag { display: inline-block; background: #e8f5e9; color: #2e7d32; font-weight: bold; padding: 8px 15px; border-radius: 20px; margin-top: 10px; font-size: 1.05rem; }
+
     /* Kontakt */
     .contact-box { background: #2e3192; color: white; padding: 40px; border-radius: 12px; text-align: center; }
     .btn { display: inline-block; background: #ff6b6b; color: white; padding: 14px 28px; border-radius: 25px; text-decoration: none; font-weight: bold; margin-top: 15px; font-size: 1.1rem; }
@@ -50,29 +60,94 @@
     <section>
       <h2>Nasza Oferta</h2>
       <div class="grid">
-        <div class="card">
-          <h3>🏰 Dmuchańce</h3>
-          <p>Zamki, zjeżdżalnie i place zabaw do skakania dla dzieci w każdym wieku. Bezpieczne i atestowane.</p>
-        </div>
-        <div class="card">
-          <h3>🎨 Animacje dla Dzieci</h3>
-          <p>Gry, zabawy, konkursy, prowadzenie imprez urodzinowych, pikników rodzinnych i festynów.</p>
-        </div>
-        <div class="card">
-          <h3>🍿 Popcorn i Wata Cukrowa</h3>
-          <p>Pyszne przekąski serwowane na żywo z maszyn gastronomicznych na wszelkiego rodzaju wydarzeniach.</p>
-        </div>
-        <div class="card">
-          <h3>🎪 Namioty, Stoły i Ławki</h3>
-          <p>Wynajem dużych namiotów imprezowych oraz pełnego zaplecza do siedzenia na plener i festyny:</p>
-          <ul>
-            <li>Stoły i ławki biesiadne</li>
-            <li>Stoły i ławki plastikowe (cateringowe)</li>
-            <li>Krzesła rozkładane</li>
-          </ul>
-        </div>
+        
+        <a href="#dmuchance" class="card-link">
+          <div class="card">
+            <h3>🏰 Dmuchańce</h3>
+            <p>Zamki, zjeżdżalnie i place zabaw do skakania dla dzieci w każdym wieku. Bezpieczne i atestowane.</p>
+            <span class="click-info">Zobacz zdjęcia i ceny &rarr;</span>
+          </div>
+        </a>
+
+        <a href="#animacje" class="card-link">
+          <div class="card">
+            <h3>🎨 Animacje dla Dzieci</h3>
+            <p>Gry, zabawy, konkursy, prowadzenie imprez urodzinowych, pikników rodzinnych i festynów.</p>
+            <span class="click-info">Zobacz zdjęcia i ceny &rarr;</span>
+          </div>
+        </a>
+
+        <a href="#gastronomia" class="card-link">
+          <div class="card">
+            <h3>🍿 Popcorn i Wata Cukrowa</h3>
+            <p>Pyszne przekąski serwowane na żywo z maszyn gastronomicznych na wszelkiego rodzaju wydarzeniach.</p>
+            <span class="click-info">Zobacz zdjęcia i ceny &rarr;</span>
+          </div>
+        </a>
+
+        <a href="#namioty-meble" class="card-link">
+          <div class="card">
+            <h3>🎪 Namioty, Stoły i Ławki</h3>
+            <p>Wynajem dużych namiotów imprezowych oraz pełnego zaplecza do siedzenia na plener i festyny:</p>
+            <ul>
+              <li>Stoły i ławki biesiadne</li>
+              <li>Stoły i ławki cateringowe</li>
+              <li>Krzesła rozkładane</li>
+            </ul>
+            <span class="click-info">Zobacz zdjęcia i ceny &rarr;</span>
+          </div>
+        </a>
+
       </div>
     </section>
+
+    <!-- Szczegółowe podstrony oferty -->
+    
+    <div id="dmuchance" class="detail-section">
+      <h3>🏰 Dmuchańce i Zjeżdżalnie</h3>
+      <p>Oferujemy bezpieczne, kolorowe dmuchańce z aktualnymi atestami, które zapewnią dzieciom mnóstwo radości.</p>
+      <div class="gallery">
+        <img src="dmuchaniec1.jpg" alt="Dmuchańce zdjęcie 1">
+        <img src="dmuchaniec2.jpg" alt="Dmuchańce zdjęcie 2">
+      </div>
+      <p class="price-tag">Cena: ustalana indywidualnie zależnie od czasu i miejsca wynajmu</p>
+    </div>
+
+    <div id="animacje" class="detail-section">
+      <h3>🎨 Animacje dla Dzieci</h3>
+      <p>Doświadczeni animatorzy zadbają o doskonałą zabawę, konkursy z nagrodami, bańki mydlane i modelowanie balonów.</p>
+      <div class="gallery">
+        <img src="animacje1.jpg" alt="Animacje zdjęcie 1">
+        <img src="animacje2.jpg" alt="Animacje zdjęcie 2">
+      </div>
+      <p class="price-tag">Cena: ustalana w zależności od pakietu godzin</p>
+    </div>
+
+    <div id="gastronomia" class="detail-section">
+      <h3>🍿 Popcorn i Wata Cukrowa</h3>
+      <p>Świeży, ciepły popcorn oraz słodka wata cukrowa przygotowywana na miejscu przez naszą obsługę.</p>
+      <div class="gallery">
+        <img src="popcorn1.jpg" alt="Gastronomia zdjęcie 1">
+        <img src="wata1.jpg" alt="Gastronomia zdjęcie 2">
+      </div>
+      <p class="price-tag">Cena: pakiet z obsługą bez limitu lub na porcje</p>
+    </div>
+
+    <div id="namioty-meble" class="detail-section">
+      <h3>🎪 Namioty, Stoły i Ławki</h3>
+      <p>Kompleksowe zaplecze imprezowe na wydarzenia w plenerze:</p>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>Namioty imprezowe plenerowe</li>
+        <li>Stoły i ławki biesiadne</li>
+        <li>Stoły i ławki cateringowe</li>
+        <li>Krzesła rozkładane</li>
+      </ul>
+      <div class="gallery">
+        <img src="namiot1.jpg" alt="Namioty i meble zdjęcie 1">
+        <img src="stoly1.jpg" alt="Namioty i meble zdjęcie 2">
+      </div>
+      <p class="price-tag">Cena: wycena zależna od wielkości zamówienia i liczby kompletów</p>
+    </div>
 
     <section id="kontakt">
       <div class="contact-box">
